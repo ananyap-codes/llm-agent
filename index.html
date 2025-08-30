@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Agent</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-light border-bottom py-3">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center">
+                <h1 class="h3 mb-0">LLM Agent</h1>
+                <div class="dropdown">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <span id="selectedModel">GPT-4</span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="#" data-model="openai/gpt-4">GPT-4</a></li>
+                        <li><a class="dropdown-item" href="#" data-model="openai/gpt-3.5-turbo">GPT-3.5 Turbo</a></li>
+                        <li><a class="dropdown-item" href="#" data-model="anthropic/claude-3-sonnet">Claude 3 Sonnet</a></li>
+                        <li><a class="dropdown-item" href="#" data-model="anthropic/claude-3-haiku">Claude 3 Haiku</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Alert Container -->
+    <div id="alertContainer" class="container-fluid mt-2"></div>
+
+    <!-- Main Content -->
+    <div class="container-fluid main-container">
+        <div class="conversation-wrapper">
+            <!-- Conversation Area -->
+            <div id="conversationArea" class="conversation-container">
+                <div id="messages" class="messages-container">
+                    <div class="welcome-message">
+                        <div class="alert alert-info">
+                            <i class="bi bi-robot"></i>
+                            <strong>Welcome to LLM Agent!</strong><br>
+                            I can help you with tasks by using tools like search, AI workflows, and code execution.
+                            Select your preferred model above and start a conversation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="input-area">
+                <div class="container-fluid">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8 col-md-10 col-12">
+                            <div class="input-group">
+                                <input 
+                                    type="text" 
+                                    id="userInput" 
+                                    class="form-control form-control-lg" 
+                                    placeholder="Type your message..." 
+                                    autocomplete="off"
+                                    style="background-color: var(--color-surface); color: var(--color-text); border: 1px solid var(--color-border);">
+                                <button id="sendButton" class="btn btn-primary btn-lg" type="button">
+                                    <i class="bi bi-send"></i>
+                                </button>
+                            </div>
+                            <div id="loadingIndicator" class="text-center mt-2 d-none">
+                                <div class="spinner-border spinner-border-sm text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                                <small class="text-muted ms-2">Agent is thinking...</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
